@@ -8,6 +8,7 @@ from components_output_maker import CompleteCasSummaryFolderMaker
 from components_output_maker import FastaOutputArrayMaker
 from components_output_maker import CompleteFastaOutputMaker
 from components_output_maker import JsonOutputMaker
+from components_output_maker import SpacerSummaryMaker
 
 
 class OutputMaker:
@@ -42,6 +43,9 @@ class OutputMaker:
         sm_csv = SummaryMakerCSV(result_path=self.result_path,
                                  categories=self.categories,
                                  non_array_data=self.non_array_data)
+
+        ssm = SpacerSummaryMaker(categories=self.categories,
+                                 result_path=self.result_path)
 
         if self.flags["flag_cas"] is True:
             sm_cas = CasSummaryMaker(result_path=self.result_path,
